@@ -1,0 +1,52 @@
+{% extends "blog_base.html" %}
+{% block title %}
+    {{ blog.category }}
+{% endblock %}
+
+{% block content %}
+    <section id="container">
+        <div class="wrap-container">
+            <!----------------Content-Box-------------------->
+            <article class="post zerogrid">
+                <div class="row wrap-post"><!--Start Box-->
+                    <div class="entry-header">
+                        <span class="time">发布于：{{ blog.pub_date }}</span>
+                        <h2 class="entry-title"><a href="#">{{ blog.title }}</a></h2>
+                        <span class="cat-links"><a href="#">标签：待定 </a>, <a href="#">标签：待定</a></span>
+                    </div>
+                    <div class="post-thumbnail-wrap">
+                        <img src="/static/images/2.jpg">
+                    </div>
+                    <div class="entry-content">
+                        {{ blog.content }}
+                    </div>
+                </div>
+            </article>
+            
+            <div class="zerogrid">
+                <div class="comments-are">
+                    <div id="comment">
+                        <h3>Leave a Reply</h3>
+                        <span>Your email address will not be published. Required fields are marked </span>
+                        <form name="form1" id="comment_form" method="post" action="">
+                            {% csrf_token %}
+                            <label>
+                            <span>Comment:</span>
+                            <textarea name="message" id="message"></textarea>
+                            </label>
+                            <label>
+                            <span>Name:</span>
+                            <input type="text"  name="name" id="name" required>
+                            </label>
+                            <label>
+                            <span>Email:</span>
+                            <input type="email"  name="email" id="email" required>
+                            </label>
+                            <center><input class="sendButton" type="submit" name="Submit" value="Submit"></center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

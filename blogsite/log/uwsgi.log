@@ -1,0 +1,54 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Apr 15 06:16:58 2018] ***
+compiled with version: 5.4.0 20160609 on 14 November 2017 08:14:08
+os: Linux-4.13.0-38-generic #43~16.04.1-Ubuntu SMP Wed Mar 14 17:48:43 UTC 2018
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /mnt/hgfs/workspace/django/blogsite_deploy
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /mnt/hgfs/workspace/django/blogsite_deploy
+your processes number limit is 3645
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+error removing unix socket, unlink(): Permission denied [core/socket.c line 198]
+bind(): Address already in use [core/socket.c line 230]
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Apr 15 06:34:14 2018] ***
+compiled with version: 5.4.0 20160609 on 14 November 2017 08:14:08
+os: Linux-4.13.0-38-generic #43~16.04.1-Ubuntu SMP Wed Mar 14 17:48:43 UTC 2018
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /mnt/hgfs/workspace/django/blogsite
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /mnt/hgfs/workspace/django/blogsite
+your processes number limit is 3645
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/blogsite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0xc3b910
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 498432 bytes (486 KB) for 10 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xc3b910 pid: 6630 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6630)
+spawned uWSGI worker 1 (pid: 6632, cores: 2)
+spawned uWSGI worker 2 (pid: 6633, cores: 2)
+spawned uWSGI worker 3 (pid: 6634, cores: 2)
+spawned uWSGI worker 4 (pid: 6635, cores: 2)
+spawned uWSGI worker 5 (pid: 6636, cores: 2)
+[pid: 6634|app: 0|req: 1/1] 192.168.74.1 () {42 vars in 819 bytes} [Sun Apr 15 13:34:16 2018] GET / => generated 13006 bytes in 272 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 6633|app: 0|req: 1/2] 192.168.74.1 () {42 vars in 803 bytes} [Sun Apr 15 13:34:17 2018] GET /favicon.ico => generated 85 bytes in 56 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)

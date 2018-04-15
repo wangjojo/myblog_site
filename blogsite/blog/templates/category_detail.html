@@ -1,0 +1,95 @@
+{% extends "blog_base.html" %}
+{% block title %}
+    {{ category.name | default:'我的博客'}}
+{% endblock %}
+{% block content %}
+    {% if blog_list %}
+        <section id="container">
+            <nav>
+                <ul class="pager">
+                    {% if now_page.has_previous %}
+                        <li>
+                            <a href="?page={{ now_page.previous_page_number }}" aria-label="Previous">&laquo;prev</a>
+                        </li>
+                    {% endif %}
+
+                    {% for pg in now_page.paginator.page_range %}
+                        {% if now_page.number == pg %}
+                            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% else %}
+                            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if now_page.has_next %}
+                        <li>
+                            <a href="?page={{ now_page.next_page_number }}" aria-label="Next"><span aria-hidden="true">next&raquo;</span></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        
+            <div class="wrap-container">
+            {% for blog in blog_list %}
+                <article class="post zerogrid">
+                    <div class="row wrap-post"><!--Start Box-->
+                        <div class="entry-header">
+                            <span class="time"></span>
+                            <h2 class="entry-title"><a href="#">{{ blog.title }}</a></h2>
+                            <span class="cat-links" style="color: #ff9900;"><a href="#">分类：{{ categroy.name }}</a>, <a href="#">标签：</a></span>
+                            <span class="cat-links">发布者：{{ blog.author | default:'jojo'}}</span>
+                        </div>
+                        <div class="post-thumbnail-wrap">
+                                <img src="/static/images/1.jpg">
+                        </div>
+
+                        <div class="entry-content">
+                            <p>{{ blog.content }}</p>
+                            <a href="{{ blog.get_absolute_url }}" >More Details</a>
+                        </div> 
+                    </div>
+                </article>
+            {% endfor %}
+            </div>
+            
+            <nav>
+                <ul class="pager">
+                    {% if now_page.has_previous %}
+                        <li>
+                            <a href="?page={{ now_page.previous_page_number }}" aria-label="Previous">&laquo;prev</a>
+                        </li>
+                    {% endif %}
+
+                    {% for pg in now_page.paginator.page_range %}
+                        {% if now_page.number == pg %}
+                            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% else %}
+                            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if now_page.has_next %}
+                        <li>
+                            <a href="?page={{ now_page.next_page_number }}" aria-label="Next"><span aria-hidden="true">next&raquo;</span></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </section>
+
+    {% else %}
+        <div class="wrap-container">
+                <article class="post zerogrid">
+                    <div class="row wrap-post"><!--Start Box-->
+                        <div class="post-thumbnail-wrap">
+                                <img src="/static/images/sorry.jpg">
+                        </div>
+                        <div class="entry-content">
+                            <h1>抱歉，该目录下还没有博客哦</h1>
+                            <h3><a href="/">返回首页</a></h3>
+                        </div> 
+                    </div>
+                </article>
+            </div>
+    {% endif %}
+{% endblock %}
