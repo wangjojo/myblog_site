@@ -5,13 +5,13 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 def index(request):
     home_display_categorys = Category.objects.filter(home_display = True)
     #展示设计为首页展示6条博客，图片廊作用待定
-    blogs = Blog.objects.all().order_by('pub_date')[:5]
+    blogs = Blog.objects.all().order_by('-pub_date')[:5]
 
     return render(request,'index.html',{'home_display_categorys':home_display_categorys,'blogs':blogs})
 
 def category_detail(request,category_slug):
     category = Category.objects.get(slug = category_slug)
-    blogs = category.blog_set.all().order_by('pub_date') #查询该栏目下博客数,并按时间排序
+    blogs = category.blog_set.all().order_by('-pub_date') #查询该栏目下博客数,并按时间排序
 
     paginator = Paginator(blogs,4)  #按4条1页分
 
@@ -35,7 +35,7 @@ def category_detail(request,category_slug):
 
 def category_detail_all(request):
     #所有博客,想办法优化成一个函数
-    blogs = Blog.objects.all().order_by('pub_date') #查询该栏目下博客数,并按时间排序
+    blogs = Blog.objects.all().order_by('-pub_date') #查询该栏目下博客数,并按时间排序
     paginator = Paginator(blogs,4)  #按4条1页分
 
     page = request.GET.get('page')

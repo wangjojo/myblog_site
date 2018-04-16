@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="entry-content">
-                            <p>{{ blog.content }}</p>
+                            <p>{{ blog.content | safe }}</p>
                             <a href="{{ blog.get_absolute_url }}" >More Details</a>
                         </div> 
                     </div>
