@@ -24,8 +24,8 @@ SECRET_KEY = 'gow=9hh@n4993@5%vyli3q0d1)rfyne8e3th8tg52q#4l39$yv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 ALLOWED_HOSTS = ['wwww.wangjojo.top','*']
 
