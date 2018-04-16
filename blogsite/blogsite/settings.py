@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'gow=9hh@n4993@5%vyli3q0d1)rfyne8e3th8tg52q#4l39$yv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-#ALLOWED_HOSTS = ['*']
+#DEBUG = False
+DEBUG = True
+
 ALLOWED_HOSTS = ['wwww.wangjojo.top','*']
 
 # Application definition
@@ -83,7 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'fg498572715',
         'HOST': '172.16.252.159',
-        #'HOST': '192.168.74.136'
+        #'HOST': '192.168.74.136',
         'PORT': '3306',
         'CHARSET':'utf8',
     }
